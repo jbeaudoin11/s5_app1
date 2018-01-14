@@ -90,25 +90,24 @@ float Accel::_rad2deg(float rad) {
 
 void Accel::update() {
 	
-	char data[3];
-	_readBufferFrom(OUT_X_MSB, data, 3);
+	_readBufferFrom(OUT_X_MSB, _data_buffer, 3);
 	
 	// Set X in g
-	_x = (float) data[0];
+	_x = (float) _data_buffer[0];
 	if(_x > 127) {
 		_x -= 255;
 	}
 	_x = _x * 4.0 / 256.0;
 	
 	// Set Y in g
-	_y = (float) data[1];
+	_y = (float) _data_buffer[1];
 	if(_y > 127) {
 		_y -= 255;
 	}
 	_y = _y * 4.0 / 256.0;
 	
 	// Set X in g
-	_z = (float) data[2];
+	_z = (float) _data_buffer[2];
 	if(_z > 127) {
 		_z -= 255;
 	}

@@ -75,6 +75,8 @@ class Accel {
 	
 		float _angle;
 	
+		char _data_buffer[3];
+	
 		I2C *_accel_i2c;
 		int _addr;
 	

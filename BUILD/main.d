@@ -96,4 +96,7 @@
 .\build\main.o: mbed/./platform/DeepSleepLock.h
 .\build\main.o: mbed/./platform/FunctionPointer.h
 .\build\main.o: .\SevenSeg.h
+.\build\main.o: .\Uart3Ctrl.h
 .\build\main.o: .\Accel.h
+.\build\main.o: .\Test.cpp
+.\build\main.o: .\Test.h

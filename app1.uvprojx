@@ -1210,6 +1210,26 @@
               <FileType>5</FileType>
               <FilePath>.\Accel.h</FilePath>
             </File>
+            <File>
+              <FileName>Uart3Ctrl.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Uart3Ctrl.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Uart3Ctrl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Uart3Ctrl.h</FilePath>
+            </File>
+            <File>
+              <FileName>Test.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Test.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Test.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Test.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

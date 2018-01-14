@@ -172,17 +172,27 @@ void SevenSeg::_clearSpi() {
 // ========= UART =========
 
 void SevenSeg::_initUart() {
-	
+	_seg_uart = new Uart3Ctrl();
 }
 
 void SevenSeg::_writeUart(char val, int index) {
 	
+	_seg_uart->write(0x79);
+	_seg_uart->write(index);
+	_seg_uart->write(val);
+	
 }
 
 void SevenSeg::_dotUart(int state, int index) {
+	_dots[index] = state;
+	
+	_seg_uart->write(0x77);
+	_seg_uart->write(_byteArrayToInt(_dots, 6));
 	
 }
 
 void SevenSeg::_clearUart() {
 	
+	_seg_uart->write(0x76);
+
 }

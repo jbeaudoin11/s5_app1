@@ -96,3 +96,4 @@
 .\build\sevenseg.o: mbed/./platform/CriticalSectionLock.h
 .\build\sevenseg.o: mbed/./platform/DeepSleepLock.h
 .\build\sevenseg.o: mbed/./platform/FunctionPointer.h
+.\build\sevenseg.o: .\Uart3Ctrl.h
