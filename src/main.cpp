@@ -1,37 +1,44 @@
 #include "mbed.h"
-
-// 7 Seg
-SPI spi(p11, p12, p13); 
-DigitalOut seg_cs(p14);
+#include "SevenSeg.h"
+#include "Accel.h"
 
 int main() {
+	printf("Start\n");
 	
-	printf("Start");
-	printf("\n");
+	SevenSeg seg(SPI_MODE);
+	seg.clear();
 	
-	seg_cs = 1;
-	
-	spi.format(8);
-	spi.frequency(9600);
-	
-	wait(0.1);
-	
-	// Start write 7seg
-	seg_cs = 0;
-	
-	spi.write(0x76);
-	spi.write('E');
-	spi.write('R');
-	spi.write('R');
-	
-	wait(0.1);
-	// Stop write 7seg
-  seg_cs = 1;
-	
-	printf("Done\n");
+	Accel acc(0x1D);
 	
 	while(1) {
-		wait(0.5);
+		acc.update();
+		
+		seg.write((int) acc.a());
+		
+		wait(0.3);
 	}
+
 	
+//	
+//	seg.write('A', 0);
+//	seg.write('B', 1);
+//	seg.write('C', 2);
+//	seg.write('D', 3);
+//	
+//	seg.dot(1, 0);
+//	seg.dot(1, 1);
+////	seg.dot(1, 2);
+//	seg.dot(1, 3);
+////	seg.dot(1, 4);
+//	seg.dot(1, 5);
+//	
+	printf("Done\n");
+	
+//	while(1) {
+//		wait(10);
+//	}
+	
+	return 0;
 }
+
+

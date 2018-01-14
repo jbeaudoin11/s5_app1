@@ -1190,6 +1190,26 @@
               <FileType>8</FileType>
               <FilePath>src/main.cpp</FilePath>
             </File>
+            <File>
+              <FileName>SevenSeg.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\SevenSeg.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SevenSeg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SevenSeg.h</FilePath>
+            </File>
+            <File>
+              <FileName>Accel.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Accel.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Accel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Accel.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

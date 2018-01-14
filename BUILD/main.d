@@ -95,3 +95,5 @@
 .\build\main.o: mbed/./platform/CriticalSectionLock.h
 .\build\main.o: mbed/./platform/DeepSleepLock.h
 .\build\main.o: mbed/./platform/FunctionPointer.h
+.\build\main.o: .\SevenSeg.h
+.\build\main.o: .\Accel.h
