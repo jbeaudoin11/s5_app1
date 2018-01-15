@@ -42,7 +42,7 @@ void testAccel() {
 	while(1) {
 		acc.update();
 		
-		printf("A %0.2f -- X %0.2f -- Y %0.2f -- Z %0.2f --\n",
+		printf("A %0.2f -- X %0.2f -- Y %0.2f -- Z %0.2f\n",
 			acc.a(),
 			acc.x(),
 			acc.y(),

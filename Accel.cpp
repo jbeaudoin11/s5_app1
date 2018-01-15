@@ -84,6 +84,15 @@ float Accel::_rad2deg(float rad) {
 	return rad * 180.0 / PI;
 }
 
+float Accel::_capInterval(float val, float _min, float _max) {
+	// Make sure the value is cap in the interval
+	
+	if(val > 0) {
+		return min(val, _max);
+	} else {
+		return max(val, _min);
+	}
+}
 
 
 
@@ -97,30 +106,28 @@ void Accel::update() {
 	if(_x > 127) {
 		_x -= 255;
 	}
-	_x = _x * 4.0 / 256.0;
+	_x = _capInterval(_x * 4.0 / 256.0, -1.0, 1.0);
 	
 	// Set Y in g
 	_y = (float) _data_buffer[1];
 	if(_y > 127) {
 		_y -= 255;
 	}
-	_y = _y * 4.0 / 256.0;
+	_y = _capInterval(_y * 4.0 / 256.0, -1.0, 1.0);
 	
 	// Set X in g
 	_z = (float) _data_buffer[2];
 	if(_z > 127) {
 		_z -= 255;
 	}
-	_z = _z * 4.0 / 256.0;
+	_z = _capInterval(_z * 4.0 / 256.0, -1.0, 1.0);
 	
-	
-	// Set Angle in deg
 	_angle = _rad2deg(asin(_x));
 	if(_z < 0) {
-		_angle = (_x >= 0 ? 180:-180) - _angle;
+		_angle = (_x >= 0.0 ? 180.0:-180.0) - _angle;
 	}
 //	
-//	printf("A %0.2f -- X %0.2f -- Y %0.2f -- Z %0.2f\n", _angle, _x, _y, _z);
+//	printf("  A %0.2f -- X %0.2f -- Y %0.2f -- Z %0.2f\n", _angle, _x, _y, _z);
 	
 }
 

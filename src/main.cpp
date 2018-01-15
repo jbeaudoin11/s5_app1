@@ -7,18 +7,18 @@ enum AppMode {
 	MAIN_SPI,		// Main with 7seg in SPI mode
 	MAIN_UART,		// Main with 7seg in UART mode
 	
-	TEST_SPI,		// Test 7seg in SPI mode
-	TEST_UART,		// Test 7seg in UART mode
+	TEST_SEG_SPI,	// Test 7seg in SPI mode
+	TEST_SEG_UART,	// Test 7seg in UART mode
 	TEST_ACC		// Test acc, serial to pc
 };
 
 // To change 
-AppMode APP_MODE = MAIN_SPI;
+//AppMode APP_MODE = MAIN_SPI;
 //AppMode APP_MODE = MAIN_UART;
 
-//AppMode APP_MODE = TEST_SPI;
-//AppMode APP_MODE = TEST_UART;
-//AppMode APP_MODE = TEST_ACC;
+//AppMode APP_MODE = TEST_SEG_SPI;
+//AppMode APP_MODE = TEST_SEG_UART;
+AppMode APP_MODE = TEST_ACC;
 
 int main() {
 	printf("--------\n");
@@ -54,11 +54,11 @@ int main() {
 			}
 		}
 		
-		case TEST_SPI:
+		case TEST_SEG_SPI:
 			testSevenSegSpi();
 		break;
 		
-		case TEST_UART:
+		case TEST_SEG_UART:
 			testSevenSegUart();
 		break;
 		

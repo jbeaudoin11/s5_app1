@@ -26,18 +26,16 @@ void Uart3Ctrl::_initUart3() {
 
 	// Enable and reset UART3 FIFOs (RX + TX).
 	LPC_UART3->FCR       = 0x7;
-	
-	//
-	LPC_UART3->THR		 = 0xFF;
 }
 
 void Uart3Ctrl::write(char val) {
-	// Wait for the THR register to be writable
-	while(LPC_UART3->LSR & LSR_THRE_EMPTY) {
-		// TODO wait_us(..) ?
-//		printf("LSR 0x%.2X\n", LPC_UART3->LSR & LSR_THRE_EMPTY);
-	}
 	
+	// Wait for the THR register to be writable
+	while((LPC_UART3->LSR & LSR_THRE_EMPTY) == 0x0) {
+		// TODO wait_us(..) ?
+	}
+
 	// Write the value so it gets add to the FIFO
 	LPC_UART3->THR = val;
+
 }

@@ -4,7 +4,7 @@
 #include <cstdio>
 #include "LPC17xx.h"
 
-#define LSR_THRE_EMPTY 0b00010000
+#define LSR_THRE_EMPTY (0x1 << 5)
 
 using namespace std;
 

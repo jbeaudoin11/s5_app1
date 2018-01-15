@@ -39,16 +39,24 @@ void SevenSeg::_splitIntIn4DigitArray(int num, char arr[4]) {
 	
 	char a, b, c, d, r;
 	
+	
+	// num = [-180 ; 180]
+	if(num > 180) {
+		num = 180;
+	} else if(num < -180) {
+		num = -180;
+	}
+	
 	if(num <= -100) {
 		a = '-';
 	} else {
 		a = '0';
 	}
 	
-	// 1000
+	// 4th digit
 	r = abs(num) % 1000;
 	
-	// 100
+	// 3rd digit
 	if(num > -100 && num <= -10) {
 		b = '-';
 	} else {
@@ -56,14 +64,14 @@ void SevenSeg::_splitIntIn4DigitArray(int num, char arr[4]) {
 	}
 	r %= 100;
 	
-	// 10
+	// 2nd digit
 	if(num > -10 && num <= -1) {
 		c = '-';
 	} else {
 		c = (char)(r / 10);	
 	}
 	
-	// 1
+	// 1th digit
 	d = (char)(r % 10);
 	
 	// Offset for ascii value

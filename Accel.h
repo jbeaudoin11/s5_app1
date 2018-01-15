@@ -2,6 +2,7 @@
 #define ACCEL_H
 
 #include <cmath>
+#include <algorithm>
 
 #include "mbed.h"
 #define PI 3.14159265
@@ -98,6 +99,7 @@ class Accel {
 		void _set8Bit();
 		
 		float _rad2deg(float rad);
+		float _capInterval(float val, float _min, float _max);
 	
 	public:
 		
