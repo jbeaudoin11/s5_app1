@@ -6,6 +6,10 @@
 
 #include "mbed.h"
 #define PI 3.14159265
+#define LPC_GPIO0_FIOPIN (int *) 0x2009C014
+#define LPC_GPIO0_FIODIR (int *) 0x2009C000
+#define LPC_PINCON_PINSEL1 (int *) 0x4002C004
+#define LPC_PINCON_PINMODE1 (int *) 0x4002C044
 
 enum AccRegister {
 	STATUS_MMA8452Q = 0x00,
@@ -73,8 +77,11 @@ class Accel {
 		float _x;
 		float _y;
 		float _z;
-	
 		float _angle;
+		float _offset_x;
+		float _offset_y;
+		float _offset_z;
+		float _offset;
 	
 		char _data_buffer[3];
 	
@@ -82,6 +89,7 @@ class Accel {
 		int _addr;
 	
 		void _initI2C();
+		void _initGPIO();
 	
 		void _writeTo(AccRegister reg, char data);
 		void _writeBufferTo(AccRegister reg, char *buffer, char len);

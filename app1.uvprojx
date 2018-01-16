@@ -1230,6 +1230,16 @@
               <FileType>5</FileType>
               <FilePath>.\Test.h</FilePath>
             </File>
+            <File>
+              <FileName>Proto.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Proto.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Proto.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Proto.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

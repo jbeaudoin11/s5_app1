@@ -99,3 +99,4 @@
 .\build\test.o: SevenSeg.h
 .\build\test.o: Uart3Ctrl.h
 .\build\test.o: Accel.h
+.\build\test.o: Proto.h

@@ -100,3 +100,4 @@
 .\build\main.o: .\Accel.h
 .\build\main.o: .\Test.cpp
 .\build\main.o: .\Test.h
+.\build\main.o: .\Proto.h
