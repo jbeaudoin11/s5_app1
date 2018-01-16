@@ -16,6 +16,7 @@ class SevenSeg {
 		SegMode _mode;
 		int _dots[6];
 		char _digits[4];
+		unsigned char _brightnessLevel;
 	
 		// Utilities
 		int _byteArrayToInt(int b[], int length);
@@ -45,6 +46,9 @@ class SevenSeg {
 		void write(char val, int index);
 		void dot(int state, int index);
 		void clear();
+	
+		void lightUp();
+		void lightDown();
 	
 };
 

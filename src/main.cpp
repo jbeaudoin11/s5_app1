@@ -26,13 +26,8 @@ AppMode APP_MODE = MAIN_PROTO;
 //AppMode APP_MODE = TEST_CMD_VALID;
 
 int main() {
-	printf("--------\n");
-//	
-//	printf("#define LPC_GPIO2_FIOPIN (int *) 0x%0.2X\n",&(LPC_GPIO2->FIOPIN));
-//	printf("#define LPC_GPIO2_FIODIR (int *) 0x%0.2X\n",&(LPC_GPIO2->FIODIR));
-//	printf("#define LPC_PINCON_PINSEL4 (int *) 0x%0.2X\n",&(LPC_PINCON->PINSEL4));
-//	printf("#define LPC_PINCON_PINMODE4 (int *) 0x%0.2X\n",&(LPC_PINCON->PINMODE4));
-//	
+	printf("-------- Start --------\n");
+	
 	switch(APP_MODE) {
 		case MAIN_SPI: {
 			Accel acc(0x1D);
@@ -66,19 +61,63 @@ int main() {
 		
 		case MAIN_PROTO: {
 			Proto proto;
-			SevenSeg seg(UART_MODE);
+			SevenSeg seg(SPI_MODE);
 			
-			seg.clear();
+				seg.clear();
 	
 			while(1) {
-//		switch(proto.read()) {
-//			
-//			
-//			
-//		}
-				printf("%d\n", proto.read());
 				
-//				seg.write((int) acc.a());
+				
+				switch(proto.read()) {
+					case DOT1_ON:
+						seg.dot(1, 0);
+					break;
+					case DOT1_OFF:
+						seg.dot(0, 0);
+					break;
+					case DOT2_ON:
+						seg.dot(1, 1);
+					break;
+					case DOT2_OFF:
+						seg.dot(0, 1);
+					break;
+					case DOT3_ON:
+						seg.dot(1, 2);
+					break;
+					case DOT3_OFF:
+						seg.dot(0, 2);
+					break;
+					case DOT4_ON:
+						seg.dot(1, 3);
+					break;
+					case DOT4_OFF:
+						seg.dot(0, 3);
+					break;
+					case DOT5_ON:
+						seg.dot(1, 4);
+					break;
+					case DOT5_OFF:
+						seg.dot(0, 4);
+					break;
+					case DOT6_ON:
+						seg.dot(1, 5);
+					break;
+					case DOT6_OFF:
+						seg.dot(0, 5);
+					break;
+					case LIGHT_UP:
+						seg.lightUp();
+					break;
+					case LIGHT_DOWN:
+						seg.lightDown();
+					break;
+					default:
+//							seg.write('E', 0);
+//							seg.write('r', 1);
+//							seg.write('r', 2);
+				}
+				
+//				printf("%d\n", proto.read());
 			}
 		}
 		

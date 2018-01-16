@@ -3,6 +3,7 @@
 SevenSeg::SevenSeg(SegMode mode) {
 	
 	_mode = mode;
+	_brightnessLevel = 255;
 	
 	for(int i=0; i<6; i++) {
 		_dots[i] = 0;
@@ -120,6 +121,15 @@ void SevenSeg::clear() {
 	} else {
 		_clearUart();
 	}
+}
+
+void SevenSeg::lightUp() {
+	_seg_spi->write(0x7A);
+	_seg_spi->write(_brightnessLevel+=5);
+}
+void SevenSeg::lightDown() {
+	_seg_spi->write(0x7A);
+	_seg_spi->write(_brightnessLevel-=5);
 }
 
 // ========= SPI =========

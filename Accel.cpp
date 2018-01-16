@@ -27,9 +27,9 @@ void Accel::_initI2C() {
 }
 
 void Accel::_initGPIO() {
-	*(LPC_PINCON_PINSEL1) &= ~(3<<17);
+	*(LPC_PINCON_PINSEL1) &= ~(3<<16);
 	*(LPC_GPIO0_FIODIR) |= (1<<24);
-	*(LPC_PINCON_PINMODE1) |= (3<<17);
+	*(LPC_PINCON_PINMODE1) |= (3<<16);
 }
 
 void Accel::_writeTo(AccRegister reg, char data) {
